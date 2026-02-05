@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba Toast Notifications</title>
+    <link href="css/toast-notifications.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            background: #f0f0f0;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5568d3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Prueba de Notificaciones Toast</h1>
+    <button onclick="mostrarToast()">Mostrar Notificación de Prueba</button>
+
+    <script src="js/toast-notifications.js"></script>
+    <script>
+        function mostrarToast() {
+            if (window.toastManager) {
+                window.toastManager.show({
+                    nombreRemitente: "Dr. Juan Pérez",
+                    mensaje: "Este es un mensaje de prueba para verificar que las notificaciones toast funcionan correctamente.",
+                    idCita: 123,
+                    fecha: new Date().toISOString()
+                });
+            } else {
+                alert("ERROR: toastManager no está disponible. Revisa la consola.");
+            }
+        }
+    </script>
+</body>
+
+</html>
